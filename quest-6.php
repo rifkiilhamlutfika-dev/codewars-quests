@@ -47,36 +47,36 @@ function solution($number)
     }
 }
 
-function solutionFromOther(int $number)
-{
-    $result = '';
+// function solutionFromOther(int $number)
+// {
+//     $result = '';
 
-    $romanNumerals = [
-        'M' => 1000,
-        'CM' => 900,
-        'D' => 500,
-        'CD' => 400,
-        'C' => 100,
-        'XC' => 90,
-        'L' => 50,
-        'XL' => 40,
-        'X' => 10,
-        'IX' => 9,
-        'V' => 5,
-        'IV' => 4,
-        'I' => 1
-    ];
+//     $romanNumerals = [
+//         'M' => 1000,
+//         'CM' => 900,
+//         'D' => 500,
+//         'CD' => 400,
+//         'C' => 100,
+//         'XC' => 90,
+//         'L' => 50,
+//         'XL' => 40,
+//         'X' => 10,
+//         'IX' => 9,
+//         'V' => 5,
+//         'IV' => 4,
+//         'I' => 1
+//     ];
 
-    foreach ($romanNumerals as $roman => $value) {
-        $matches = intval($number / $value);
-        echo "<br/>" . ($matches) . " matches";
-        $result .= str_repeat($roman, $matches);
-        echo "<br/>" . ($result) . " result";
-        $number = $number % $value;
-        echo "<br/>" . $number;
-    }
+//     foreach ($romanNumerals as $roman => $value) {
+//         $matches = intval($number / $value);
+//         echo "<br/>" . ($matches) . " matches";
+//         $result .= str_repeat($roman, $matches);
+//         echo "<br/>" . ($result) . " result";
+//         $number = $number % $value;
+//         echo "<br/>" . $number;
+//     }
 
-    return $result;
-}
+//     return $result;
+// }
 
-echo solutionFromOther(9);
+echo solution(9);
