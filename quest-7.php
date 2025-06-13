@@ -25,22 +25,22 @@ function is_prime(int $n): bool
     return true;
 }
 
-function is_prime_other(int $n): bool
-{
-    if ($n <= 1) {
-        return false;
-    }
+// function is_prime_other(int $n): bool
+// {
+//     if ($n <= 1) {
+//         return false;
+//     }
 
-    for ($i = 2; $i <= sqrt($n); $i++) {
-        if ($n % $i === 0) {
-            return false;
-        }
-    }
+//     for ($i = 2; $i <= sqrt($n); $i++) {
+//         if ($n % $i === 0) {
+//             return false;
+//         }
+//     }
 
-    return true;
-}
+//     return true;
+// } // this code from other people
 
-if (is_prime_other(3)) {
+if (is_prime(3)) {
     echo "is_prime";
 } else {
     echo "nah..";
