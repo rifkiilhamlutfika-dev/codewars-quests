@@ -7,3 +7,17 @@
 // "testing" --> "t"
 // "middle" --> "dd"
 // "A" --> "A"
+
+function getMiddle(s = "") {
+  if (s.length % 2 == 0) {
+    let text = s.split("");
+    let indexStartSelect = s.length / 2;
+    return text[indexStartSelect - 1] + text[indexStartSelect];
+  } else {
+    let text = s.split("");
+    let indexStartSelect = Math.floor(s.length / 2);
+    return text[indexStartSelect];
+  }
+}
+
+console.log(getMiddle("middle"));
