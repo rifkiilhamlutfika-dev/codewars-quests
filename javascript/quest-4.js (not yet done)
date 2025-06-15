@@ -1,0 +1,47 @@
+// You must create function randomSumArray(len, sum, d) which returns integer array which sums to given sum.
+
+// len is length of integers to generate
+// sum is sum of generated integers
+// d is difference degree between the values (0..100). Default value d = 100. The bigger d value is the bigger chance to generate unique numbers, but even if d is 100 it is possible to have duplicate generated numbers because we generating them randomly so by increasing d you also increase range of random numbers to select from. Note that d value can be as big as you want, but for this kata it's enough to be max d = 100.
+// Example:
+
+// randomSumArray(5, 100) => [ 30, 23, 39, 7, 1 ]
+// randomSumArray(3, 12) => [ 5, 4, 3 ]
+// Example with d argument:
+
+// randomSumArray(3, 12, 0) => [ 4, 4, 4 ]
+// randomSumArray(3, 12, 50) => [ 5, 5, 2 ]
+// randomSumArray(3, 12, 100) => [ 1, 6, 5 ]
+
+//some times it is not possible to have 100 % unique values event if d = 100
+// randomSumArray(3, 2, 100) => [ 0, 1, 1 ]
+//same happens with d = 0, in this case not possible to have all duplicate values
+// randomSumArray(3, 2, 0) => => [ 0, 1, 1 ]
+//in such cases we need to put zero values in some places
+// Note: some times test should generate different numbers with difference degree equals 100 can fail because we still have small chance to generate equal numbers, try run it again.
+
+function randomSumArray(len, sum, d = 100) {
+  let arrayNumbers = [];
+  console.log(sum / len);
+  for (let i = 0; i < len; i++) {
+    if (i == 0)
+      arrayNumbers.push(Math.floor(Math.random() * (Math.ceil(sum / len) + 1)));
+    else {
+      let con = true;
+      do {
+        let randomNumber = Math.floor(
+          Math.random() * (Math.ceil(sum / len) + 1)
+        );
+        if (arrayNumbers.includes(randomNumber)) con = true;
+        else {
+          arrayNumbers.push(randomNumber);
+          con = false;
+        }
+      } while (con == true);
+    }
+  }
+
+  return arrayNumbers;
+}
+
+console.log(randomSumArray(5, 12));
